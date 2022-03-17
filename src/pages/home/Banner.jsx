@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { FaArrowRight } from "react-icons/fa";
 
 const Banner = () => {
     return (
@@ -24,8 +25,8 @@ const Banner = () => {
 
                         <div className="txt-center">
                             <button className="btn">
-                                Learn More
-                                <i className="fas fa-arrow-right"></i>
+                                Learn More &nbsp;
+                                <FaArrowRight />
                             </button>
                         </div>
                     </div>
