@@ -3,18 +3,17 @@ import { useState, useEffect } from 'react';
 import axios from "axios";
 
 const Category = () => {
-    const [loader, setLoader] = useState(false);
+    const [loader, setLoader] = useState(true);
     const [category, setCategory] = useState([]);
 
     const getData = async () => {
         try {
-            setLoader(true);
             const response = await axios.get("/api/categories");
             setLoader(false);
-            console.log(response.data.categories);
             setCategory(response.data.categories);
         }
         catch (err) {
+            setLoader(false);
             console.error(err);
         }
     }
