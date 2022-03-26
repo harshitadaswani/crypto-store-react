@@ -6,7 +6,7 @@ const Category = () => {
     const [loader, setLoader] = useState(true);
     const [category, setCategory] = useState([]);
 
-    const getData = async () => {
+    const getCategory = async () => {
         try {
             const response = await axios.get("/api/categories");
             setLoader(false);
@@ -19,7 +19,7 @@ const Category = () => {
     }
 
     useEffect(() => {
-        getData()
+        getCategory()
     }, [])
 
     return (

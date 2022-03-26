@@ -9,7 +9,6 @@ export const Products = () => {
             <main>
                 <Product />
             </main>
-
         </div>
 
     )

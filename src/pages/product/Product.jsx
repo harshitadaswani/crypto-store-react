@@ -5,25 +5,29 @@ import { AiFillHeart } from "react-icons/ai";
 
 const Product = () => {
 
-    const [item, setItem] = useState([]);
+    const [product, setProduct] = useState([]);
+    const [loader, setLoader] = useState(true);
 
-    const getData = async () => {
+    const getProduct = async () => {
         try {
             const response = await axios.get("/api/products");
-            setItem(response.data.products);
+            setLoader(false);
+            setProduct(response.data.products);
         }
         catch (err) {
+            setLoader(false);
             console.error(err);
         }
     }
 
     useEffect(() => {
-        getData()
+        getProduct()
     }, [])
 
     return (
         <div class="card-container br-s">
-            {item.map(({ _id, title, author, price, categoryName, categoryImage }) => {
+            {loader && <div> Loading the products </div>}
+            {product.map(({ _id, title, author, price, categoryName, categoryImage }) => {
                 return <div className="card p-xs m-xs br-s" key={_id}>
                     <div className="card-img relative">
                         <img src={categoryImage} alt={title} className="br-s img-responsive" />
