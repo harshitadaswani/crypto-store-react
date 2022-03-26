@@ -34,7 +34,7 @@ const Category = () => {
 
                     <div className="category p-l m-l br-m" key={_id}>
                         <a href="https://" className="p-s m-s">
-                            <img src={categoryImage} className="p-xl" alt="artwork svg" />
+                            <img src={categoryImage} className="p-xl" alt={ categoryName } />
                             <div className="txt-center">
                                 {categoryName}
                             </div>
