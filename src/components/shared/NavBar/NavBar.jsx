@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 function Navbar() {
 
     return (
-        <div className="">
             <nav className="navigation">
                 <div className="nav-left">
                     <Link to="/" className="txt-l fw-black p-s m-s">Crypto&nbsp;Store</Link>
@@ -40,8 +39,7 @@ function Navbar() {
                     </Link>
                 </div>
             </nav>
-        </div>
     );
 }
 
-export default Navbar;
+export { Navbar };
