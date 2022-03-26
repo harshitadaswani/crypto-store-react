@@ -43,11 +43,9 @@ const Filter = () => {
                 <div className="fw-bold txt-m">Category</div>
 
                 {category.map(({ categoryName, _id }) => (
-                    <div>
-                        <div className="p-xs" key={_id}>
-                            <input type="checkbox" name={categoryName} className="p-xs m-xs" />
-                            <label for={categoryName}>{categoryName}</label>
-                        </div>
+                    <div className="p-xs" key={_id}>
+                        <input type="checkbox" name={categoryName} className="p-xs m-xs" />
+                        <label htmlFor={categoryName}>{categoryName}</label>
                     </div>
                 ))
                 }
@@ -59,7 +57,7 @@ const Filter = () => {
                 <div className="fw-bold txt-m">Rating</div>
                 {[4, 3, 2, 1].map((item) => <div className="p-xs">
                     <input type="radio" name="Rating" className="p-xs m-xs" />
-                    <label for="Rating">{item} ⭐ & more</label>
+                    <label htmlFor="Rating">{item} ⭐ & more</label>
                 </div>)}
             </div>
 
@@ -67,11 +65,11 @@ const Filter = () => {
                 <div className="fw-bold txt-m">Sorting</div>
                 <div className="p-xs">
                     <input type="radio" name="Sorting" className="p-xs m-xs" />
-                    <label for="Sorting">Price: Low to High</label>
+                    <label htmlFor="Sorting">Price: Low to High</label>
                 </div>
                 <div className="p-xs">
                     <input type="radio" name="Sorting" className="p-xs m-xs" />
-                    <label for="Sorting">Price: High to Low</label>
+                    <label htmlFor="Sorting">Price: High to Low</label>
                 </div>
             </div>
         </aside>

@@ -10,9 +10,9 @@ const Product = () => {
 
     const getProduct = async () => {
         try {
-            const response = await axios.get("/api/products");
+            const { data } = await axios.get("/api/products");
             setLoader(false);
-            setProduct(response.data.products);
+            setProduct(data.products);
         }
         catch (err) {
             setLoader(false);
@@ -25,7 +25,7 @@ const Product = () => {
     }, [])
 
     return (
-        <div class="card-container br-s">
+        <div className="card-container br-s">
             {loader && <div> Loading the products </div>}
             {product.map(({ _id, title, author, price, categoryName, categoryImage }) => {
                 return <div className="card p-xs m-xs br-s" key={_id}>
