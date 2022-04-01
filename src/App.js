@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { Navbar, Footer } from "./components/shared";
+import { Navbar, Footer } from "./components";
 import { Home, Products } from "./pages";
 import { Routes, Route } from "react-router-dom";
 
