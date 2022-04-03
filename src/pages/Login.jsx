@@ -10,19 +10,19 @@ export const Login = () => {
                     <h1 className="m-s p-s txt-center">Login</h1>
 
                     <div className="flex-column">
-                        <label htmlFor="Email" className="m-xs">Email Address:</label>
-                        <input type="email" name="Email" className="input-box p-s m-xs br-s" placeholder="abc@xyz.com" />
+                        <label htmlFor="Email" className="m-xs" id='email1'>Email Address:</label>
+                        <input type="email" name="Email" className="input-box p-s m-xs br-s" placeholder="abc@xyz.com" id='email1' />
                     </div>
 
                     <div className="flex-column">
-                        <label htmlFor="Password" className="m-xs">Password:</label>
-                        <input type="password" name="Password" className="input-box p-s m-xs br-s" placeholder="******" />
+                        <label htmlFor="Password" className="m-xs" id='password1'>Password:</label>
+                        <input type="password" name="Password" className="input-box p-s m-xs br-s" placeholder="******" id='password1' />
                     </div>
 
                     <div className="flex-row flex-space-between">
                         <div className="checkbox-div">
-                            <input type="checkbox" name="Remember-me" className="br-xs p-xs m-xs txt-m" />
-                            <label htmlFor="Remember-me" className="fw-semibold p-s m-s">Remember me</label>
+                            <input type="checkbox" name="Remember-me" className="br-xs p-xs m-xs txt-m" id='checkbox' />
+                            <label htmlFor="Remember-me" className="fw-semibold p-s m-s" id='checkbox'>Remember me</label>
                         </div>
                         <Link to="/" className="forgot-link fw-semibold p-s m-s">Forgot your Password?</Link>
                     </div>
