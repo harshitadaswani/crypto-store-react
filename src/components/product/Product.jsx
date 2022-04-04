@@ -1,16 +1,20 @@
 import React from 'react';
-import { useState, useEffect } from "react";
-import axios from "axios";
 import { AiFillHeart } from "react-icons/ai";
 import { useFilter } from '../../context/FilterContext';
+import { useCart } from '../../context/CartContext';
+import { ADD_TO_CART } from '../../reducer/CartReducer';
+import { Link } from "react-router-dom";
 
 const Product = () => {
 
     const { filteredItems } = useFilter();
+    const { cartDispatch } = useCart();
 
     return (
         <div className="card-container br-s">
-            {filteredItems.map(({ _id, title, author, price, categoryName, productImage, rating }) => {
+            {filteredItems.map((product) => {
+                const { _id, title, author, price, categoryName, productImage, rating } = product;
+
                 return <div className="card p-xs m-xs br-s" key={_id}>
                     <div className="card-img relative">
                         <img src={productImage} alt={title} className="br-s img-responsive" />
@@ -29,9 +33,16 @@ const Product = () => {
                             <img src="https://storage.opensea.io/files/accae6b6fb3888cbff27a013729c22dc.svg" alt="weth currency" className="currency-img" />
                             <div>{price}</div>
                         </div>
-                        <button className="bid-btn br-s p-s m-xs fw-semibold txt-s">
-                            Place Bid
+
+                        <button className="bid-btn br-s p-s m-xs fw-semibold txt-s" onClick={() => cartDispatch({
+                            type: ADD_TO_CART,
+                            payload: product,
+                        })}><Link to="/cart">
+                                Place Bid
+                            </Link>
                         </button>
+
+
                     </div>
                 </div>
 
