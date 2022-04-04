@@ -5,11 +5,9 @@ import { ADD_TO_CART, DECREMENT_ITEM, REMOVE_FROM_CART } from '../../reducer/Car
 
 export const Card = () => {
     const { cartState, cartDispatch } = useCart();
-    console.log(cartState);
     return (
         <>
             {cartState.cartArr.map((product) => {
-                console.log(product);
                 const { _id, title, price, productImage, quantity } = product;
                 return (
                     <div className="card hori flex gap-1 flex-align-center p-xs m-xs br-s" key={_id}>
