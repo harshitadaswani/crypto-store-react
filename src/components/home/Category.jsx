@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
 const Category = () => {
     const [loader, setLoader] = useState(true);
@@ -33,12 +34,12 @@ const Category = () => {
                 {category.map(({ categoryName, _id, categoryImage }) => (
 
                     <div className="category p-l m-l br-m" key={_id}>
-                        <a href="https://" className="p-s m-s">
+                        <Link to="/products" className="p-s m-s">
                             <img src={categoryImage} className="p-xl" alt={categoryName} />
                             <div className="txt-center">
                                 {categoryName}
                             </div>
-                        </a>
+                        </Link>
                     </div>
                 ))
                 }
