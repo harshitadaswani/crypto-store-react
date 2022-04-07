@@ -6,3 +6,4 @@ export { Filter } from "./product/Filter";
 export { Product } from "./product/Product";
 export { Card } from "./cart/Card";
 export { Checkout } from "./cart/Checkout";
+export { WishlistCard } from "./wishlist/WishlistCard";

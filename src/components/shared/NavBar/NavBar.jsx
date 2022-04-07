@@ -3,11 +3,13 @@ import "./navbar.css";
 import { BsHeartFill, BsCartFill } from "react-icons/bs";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useCart } from "../../../context/CartContext"
+import { useCart } from "../../../context/CartContext";
+import { useWishlist } from "../../../context/WishlistContext";
 
 function Navbar() {
 
     const { cartState } = useCart();
+    const { wishlistState } = useWishlist();
     return (
         <nav className="navigation">
             <div className="nav-left">
@@ -29,7 +31,7 @@ function Navbar() {
                 <Link to="/wishlist" className="txt-m fw-black p-s m-s">
                     <div className="badge">
                         <BsHeartFill className="icons" />
-                        <div className="number-badge txt-s">10</div>
+                        <div className="number-badge txt-s">{wishlistState.wishlist.length}</div>
                     </div>
                 </Link>
 

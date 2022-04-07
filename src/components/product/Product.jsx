@@ -2,13 +2,16 @@ import React from 'react';
 import { AiFillHeart } from "react-icons/ai";
 import { useFilter } from '../../context/FilterContext';
 import { useCart } from '../../context/CartContext';
+import { useWishlist } from '../../context/WishlistContext';
 import { ADD_TO_CART } from '../../reducer/CartReducer';
+import { ADD_TO_WISHLIST, REMOVE_FROM_WISHLIST } from '../../reducer/WishlistReducer';
 import { Link } from "react-router-dom";
 
 const Product = () => {
 
     const { filteredItems } = useFilter();
     const { cartDispatch } = useCart();
+    const { wishlistState, wishlistDispatch } = useWishlist();
 
     return (
         <div className="card-container br-s">
@@ -18,7 +21,14 @@ const Product = () => {
                 return <div className="card p-xs m-xs br-s" key={_id}>
                     <div className="card-img relative">
                         <img src={productImage} alt={title} className="br-s img-responsive" />
-                        <AiFillHeart className="wishlist-btn br-full" size={35} />
+                        <AiFillHeart className="wishlist-btn br-full" size={35} color={wishlistState.wishlist.includes(product) ? "red" : "black"} onClick={() =>
+                            wishlistState.wishlist.includes(product) ? wishlistDispatch({
+                                type: REMOVE_FROM_WISHLIST,
+                                payload: product
+                            }) : wishlistDispatch({
+                                type: ADD_TO_WISHLIST,
+                                payload: product
+                            })} />
 
                     </div>
                     <div className="card-content flex-column flex-center">

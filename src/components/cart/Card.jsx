@@ -1,10 +1,13 @@
 import React from 'react';
 import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
 import { useCart } from '../../context/CartContext';
+import { useWishlist } from '../../context/WishlistContext';
+import { ADD_TO_WISHLIST } from '../../reducer/WishlistReducer';
 import { ADD_TO_CART, DECREMENT_ITEM, REMOVE_FROM_CART } from '../../reducer/CartReducer';
 
 export const Card = () => {
     const { cartState, cartDispatch } = useCart();
+    const { wishlistDispatch } = useWishlist();
     return (
         <>
             {cartState.cartArr.map((product) => {
@@ -34,7 +37,10 @@ export const Card = () => {
                             <button className="bid-btn br-s p-s m-xs fw-semibold txt-s" onClick={() => cartDispatch({ type: REMOVE_FROM_CART, payload: product })}>
                                 Remove from Cart
                             </button>
-                            <button className="bid-btn br-s p-s m-xs fw-semibold txt-s">
+                            <button className="bid-btn br-s p-s m-xs fw-semibold txt-s" onClick={() => {
+                                wishlistDispatch({ type: ADD_TO_WISHLIST, payload: product });
+                                cartDispatch({ type: REMOVE_FROM_CART, payload: product });
+                            }}>
                                 Move to Wishlist
                             </button>
                         </div>
