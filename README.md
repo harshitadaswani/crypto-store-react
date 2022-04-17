@@ -1,13 +1,11 @@
 
 # CRYPTO STORE
 
-CRYPTO STORE is an E-commerce website project built using HTML5 and CSS3. It has features like authentication pages (login, signup), products page, wishlist page and cart page.
+CRYPTO STORE is an E-commerce website project built using REACT. It has features like filters, products page, wishlist page and cart page.
+
 ## Tech Stack
 
-HTML5
-
-CSS3
-
+REACT
 
 ## Features
 
@@ -24,7 +22,7 @@ CSS3
 
 ## Demo
 
-https://harshita-crypto-store.netlify.app/
+https://crypto-store.netlify.app/
 
 
 ## Authors
